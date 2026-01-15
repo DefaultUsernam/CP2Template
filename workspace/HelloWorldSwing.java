@@ -10,17 +10,18 @@
 // Note to self:
 // j frame is the back, the n there's a root pane, then a layered plane, then a content pane, then a glass pane
 // content pane shows stuff, j stuff is outer thing
-
+/*
 import javax.swing.*;        
 import java.awt.*;
 import java.awt.event.*;
 
-public class HelloWorldSwing {
+public class HelloWorldSwing {*/
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
      * event-dispatching thread.
      */
+    /*
     private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("HelloWorldSwing");
@@ -115,3 +116,4 @@ public class HelloWorldSwing {
 }
 
 
+*/
