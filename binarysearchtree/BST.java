@@ -43,45 +43,42 @@ public class BST {
       }
     }
 
-      for (int i = allNodes.size() - 1; i >= 0; i--) {
-        Node node = allNodes.get(i);
-        Node parent = null;
-        if (i - 1 >= 0) {
-          parent = allNodes.get(i - 1);
+    for (int i = allNodes.size() - 1; i >= 0; i--) {
+      Node node = allNodes.get(i);
+      Node parent = null;
+      if (i - 1 >= 0) {
+        parent = allNodes.get(i - 1);
+      }
+      int bal = balance(node);
+      // Right heavy
+      if (bal > 1) {
+        // RL
+        if (balance(node.right) < 0) {
+          rotateRight(node.right, node);
         }
-        int bal = balance(node);
-        // Right heavy
-        if (bal > 1) {
-          // RL
-          if (balance(node.right) < 0) {
-            rotateRight(node.right, node);
-          }
-            rotateLeft(node, parent);
-          }
+        rotateLeft(node, parent);
+      }
 
-
-        // Left heavy
-        else if (bal < -1) {
-          // LR
-          if (balance(node.left) > 0) {
-            printTree();
-            rotateLeft(node.left, node);
-            printTree();
-          }
-            rotateRight(node, parent);
-          
+      // Left heavy
+      else if (bal < -1) {
+        // LR
+        if (balance(node.left) > 0) {
+          printTree();
+          rotateLeft(node.left, node);
+          printTree();
         }
+        rotateRight(node, parent);
+
       }
     }
-
-  
+  }
 
   // Precondition: valid int key
   // Postcondition: removes the node sharing the key, if it exists in the tree,
   // and returns the depth, if the key isn't in the tree, return -1
   int remove(int key) {
     ArrayList<Node> allNodes = new ArrayList<Node>();
-      int depth = 0;
+    int depth = 0;
     if (!search(key)) {
       return -1;
     } else {
@@ -176,31 +173,19 @@ public class BST {
         if (balance(node.right) < 0) {
           rotateRight(node.right, node);
         }
-        // RR
-        if (parent == null) {
-          rotateLeft(node, parent);
-          root = node.right;
-        } else {
-
-          rotateLeft(node, parent);
-        }
-
+        rotateLeft(node, parent);
       }
 
       // Left heavy
       else if (bal < -1) {
         // LR
         if (balance(node.left) > 0) {
+          printTree();
           rotateLeft(node.left, node);
+          printTree();
         }
+        rotateRight(node, parent);
 
-        // LL
-        if (parent == null) {
-          rotateRight(node, parent);
-          root = node.left;
-        } else {
-          rotateRight(node, parent);
-        }
       }
     }
 
@@ -385,29 +370,26 @@ public class BST {
     }
   }
 
-  // tests for the methods
+  // tests insert and remove for AVL tree
   public static void main(String[] args) {
     BST tree = new BST();
     tree.insert(10);
     tree.insert(7);
     tree.insert(8);
-     tree.insert(5);
-     tree.insert(4);
+    tree.insert(5);
+    tree.insert(4);
     tree.insert(3);
     tree.insert(9);
-     tree.insert(10);
-     tree.insert(11);
+    tree.insert(10);
+    tree.insert(11);
     tree.insert(12);
     tree.insert(13);
-     tree.printTree();
-     System.out.println("Removing 7, depth" + tree.remove(7));
-     System.out.println("Removing 11, depth" + tree.remove(11));
-     System.out.println("Removing 3, depth" + tree.remove(3));
+    tree.printTree();
+    System.out.println("Removing 7, depth " + tree.remove(7));
+    System.out.println("Removing 11, depth " + tree.remove(11));
+    System.out.println("Removing 3, depth " + tree.remove(3));
 
-     tree.printTree();
-
-    
-
+    tree.printTree();
 
   }
 }
