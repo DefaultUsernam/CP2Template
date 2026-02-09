@@ -1,4 +1,9 @@
-
+// Ulises Cantor
+// Period 5
+// 12/17/2025
+// Menchukov
+// Computer Programming 3
+// Creates methods to edit and view an AVL tree
 package binarysearchtree;
 
 import java.util.ArrayList;
@@ -384,12 +389,12 @@ public class BST {
     tree.insert(11);
     tree.insert(12);
     tree.insert(13);
-    tree.printTree();
-    System.out.println("Removing 7, depth " + tree.remove(7));
-    System.out.println("Removing 11, depth " + tree.remove(11));
-    System.out.println("Removing 3, depth " + tree.remove(3));
-
-    tree.printTree();
+  //  tree.printTree();
+    //System.out.println("Removing 7, depth " + tree.remove(7));
+    //System.out.println("Removing 11, depth " + tree.remove(11));
+    //System.out.println("Removing 3, depth " + tree.remove(3));
+System.out.println(tree.toString());
+    //tree.printTree();
 
   }
 }

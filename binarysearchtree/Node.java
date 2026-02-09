@@ -1,9 +1,4 @@
-// Ulises Cantor
-// Period 5
-// 12/17/2025
-// Menchukov
-// Computer Programming 3
-// Creates methods to edit and view a binary search tree
+
 
 
 
